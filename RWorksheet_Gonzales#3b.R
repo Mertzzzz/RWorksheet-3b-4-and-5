@@ -1,0 +1,106 @@
+---
+title: "RWorksheet_Gonzales#3b.R."
+author: "Mamerto F. Gonzales Jr."
+date: "`11/11/2022"
+output: pdf_document
+---
+  
+  Worksheet-3b in R
+
+Instructions:
+  • Use RStudio or the RStudio Cloud accomplish this worksheet.
+• Save the R script as RWorksheet_lastname#3b.R.
+• On your own GitHub repository, push the R script, the Rmd file, as well as this pdf worksheet to the repo you have created before.
+• Do not forget to comment your Git repo on our VLE
+• Accomplish this worksheet by answering the questions being asked and writing the code manually.
+
+1. Create a data frame using the table below.
+
+```{r}
+Respondents <- c(1:20)
+Sex <- c(2,2,1,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,1,2)
+Fathers_Occupation <- c(1,3,3,3,1,2,3,1,1,1,3,2,1,3,3,1,3,1,2,1)
+Persons_at_Home <- c(5,7,3,8,5,9,6,7,8,4,7,5,4,7,8,8,3,11,7,6)
+Siblings_at_School <- c(6,4,4,1,2,1,5,3,1,2,3,2,5,5,2,1,2,5,3,2)
+Types_of_Houses <- c(1,2,3,1,1,3,3,1,2,3,2,3,2,2,3,3,3,3,3,2)
+fam_data <- data.frame(Respondents, Sex, Fathers_Occupation, Persons_at_Home, Siblings_at_School, Types_of_Houses)
+```
+
+| a. Write the codes.
+```{r}
+fam_data
+```
+b. Describe the data. Get the structure or the summary of the data
+
+```{r}
+summary(fam_data)
+```
+
+c. Is the mean number of siblings attending is 5?
+  
+  No, the mean number of siblings attending is 2.95.
+
+d. Extract the 1st two rows and then all the columns using the subsetting functions.
+Write the codes and its output.
+
+```{r}
+x1 <- subset(fam_data[1:2, 1:6, drop = FALSE])
+x1
+```
+
+e. Extract 3rd and 5th row with 2nd and 4th column. Write the codes and its result.
+
+```{r}
+x2 <- subset (fam_data[c(3, 5), c(2,4)])
+x2
+```
+f. Select the variable types of houses then store the vector that results as types_houses.
+Write the codes.
+
+```{r}
+types_houses <- subset(fam_data[c(6)])
+types_houses
+```
+g. Select only all Males respondent that their father occupation was farmer. Write
+the codes and its output.
+
+```{r}
+Males <- subset(fam_data[c(3,11),c(2,3)])
+Males
+```
+h. Select only all females respondent that have greater than or equal to 5 number
+of siblings attending school. Write the codes and its outputs.
+
+```{r}
+Females <- subset(fam_data[c(1,7, 13, 14, 18), c(2, 5)])
+Females
+```
+
+2. Write a R program to create an empty data frame. Using the following codes:
+  df = data.frame(Ints=integer(),
+                  Doubles=double(), Characters=character(),
+                  Logicals=logical(),
+                  Factors=factor(),
+                  stringsAsFactors=FALSE)
+print("Structure of the empty dataframe:")
+print(str(df))
+
+```{R}
+df = data.frame(Ints=integer(),
+                Doubles=double(), Characters=character(),
+                Logicals=logical(),
+                Factors=factor(),
+                stringsAsFactors=FALSE)
+print("Structure of the empty dataframe:")
+print(str(df))
+```
+
+a. Describe the results.
+
+The results of an empty data frame when printed is null. It also has either zero number of rows or zero number of columns. 
+
+3. Interpret the graph.
+
+The sentiments of Donald Trump's tweets per day are mostly negative.
+
+Figure 1: Sentiments of Tweets per day - Donald Trump

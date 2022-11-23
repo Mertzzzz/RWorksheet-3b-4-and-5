@@ -1,0 +1,112 @@
+---
+title: "RWorksheet_Gonzales#4"
+author: "Mamerto F. Gonzales Jr."
+date: "`r Sys.Date()`"
+---
+  
+  Worksheet-4 in R
+Worksheet for R Programming
+Instructions:
+  • Use RStudio or the RStudio Cloud accomplish this worksheet.
+• Save the R script as RWorksheet_lastname#4.R.
+• On your own GitHub repository, push the R script, the Rmd file, as well as this
+pdf worksheet to the repo you have created before.
+• Do not forget to comment your Git repo on our VLE
+• Accomplish this worksheet by answering the questions being asked and writing
+the code manually.
+
+1. The table below shows the data about shoe size and height. Create a data frame..
+a. Describe the data.
+
+```{r}
+Shoe_Size <- c(6.5, 9.0, 8.5, 8.5, 10.5, 7.0, 9.5, 9.0, 13.0, 7.5, 10.5, 8.5, 12.0, 10.5, 13.0, 11.5, 8.5, 5.0, 10.0, 6.5, 7.5, 8.5, 10.5, 8.5, 10.5, 11.0, 9.0, 13.0)
+Height <- c(66.0, 68.0, 64.5, 65.0, 70.0, 64.0, 70.0, 71.0, 72.0, 64.0, 74.5, 67.0, 71.0, 71.0, 77.0, 72.0, 59.0, 62.0, 72.0, 66.0, 64.0, 67.0, 73.0, 69.0, 72.0, 70.0, 69.0, 70.0)
+Gender <- c("F", "F", "F", "F", "M", "F", "F", "F", "M", "F", "M", "F", "M", "M", "M", "M", "F", "F", "M", "F", "F", "M", "M", "F", "M", "M", "M", "M")
+ShoeStore <- data.frame(Shoe_Size, Height, Gender)
+ShoeStore
+```
+
+b. Find the mean of shoe size and height of the respondents.
+Copy the codes and results.
+
+```{R}
+ShoeHeight_Mean <- colMeans(ShoeStore[sapply(ShoeStore, is.numeric)])
+ShoeHeight_Mean
+```
+
+c. Is there a relationship between shoe size and height? Why?
+  
+  - Yes, the shoe size of a person depends on what their height is to keep them balance.
+
+Factors
+A nominal variable is a categorical variable without an implied order. This
+means that it is impossible to say that ‘one is worth more than the other’.
+In contrast, ordinal variables do have a natural ordering.
+Example:
+  Gender <- c("M","F","F","M")
+factor_Gender <- factor(Gender)
+factor_Gender
+## [1] M F F M
+## Levels: F M
+
+2. Construct character vector months to a factor with factor() and assign the result to
+factor_months_vector. Print out factor_months_vector and assert that R prints out
+the factor levels below the actual values.
+Consider data consisting of the names of months:
+  "March","April","January","November","January",
+"September","October","September","November","August",
+"January","November","November","February","May","August",
+"July","December","August","August","September","November","February","April")
+
+```{R}
+Months <- c("March", "April", "January", 
+            "November", "January", "September", 
+            "October", "September", "November",
+            "August", "January", "November", 
+            "November", "February", "May", "August",
+            "July", "December", "August",
+            "August","September", "November", 
+            "February", "April")
+factor_Months <- factor(Months)
+factor_Months
+```
+
+3. Then check the summary() of the months_vector and factor_months_vector. |
+  Interpret the results of both vectors. Are they both equally useful in this case?
+  
+  ```{R}
+summary(Months)
+summary(factor_Months)
+```
+
+4. Create a vector and factor for the table below.
+Direction Frequency
+East 1
+West 4
+North 3
+Note: Apply the factor function with required order of the level.
+new_order_data <- factor(factor_data,levels = c("East","West","North"))
+print(new_order_data)
+
+```{R}
+factor_data <- c(1,4,3)
+new_order_data <- factor(factor_data,levels = c("East","West","North"))
+print(new_order_data)
+```
+
+5. Enter the data below in Excel with file name = import_march.csv
+Figure 1: Excel File
+a. Import the excel file into the Environment Pane using read.table() function.
+Write the code.
+
+```{R}
+getwd()
+read.table("import_march.xlsx", header = TRUE, sep=",")
+```
+
+b. View the dataset. Write the code and its result.
+
+```{R}
+import_march <- read_excel("import_march.xlsx")
+import_march
+```
